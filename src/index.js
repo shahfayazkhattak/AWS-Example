@@ -11,6 +11,7 @@ app.get('/health', (req, res) => {
 
 // 2. Server Info
 app.get('/info', (req, res) => {
+    console.log('Info endpoint hit');
     res.json({
         hostname: require('os').hostname(),
         platform: process.platform,
@@ -25,6 +26,7 @@ app.post('/echo', (req, res) => {
 
 // 4. Time
 app.get('/time', (req, res) => {
+    console.log('Time endpoint hit');
     res.json({ time: new Date().toISOString() });
 });
 
