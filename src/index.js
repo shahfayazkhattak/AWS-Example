@@ -34,6 +34,19 @@ app.use('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.get('/status', (req, res) => {
+    console.log('Status endpoint hit');
+    res.json({
+        status: 'ok', message: 'Server is running', data: {
+            headers: req.headers,
+            method: req.method,
+            url: req.originalUrl,
+            query: req.query,
+            ip: req.ip
+        }
+    });
+})
+
 app.listen(port, () => {
     console.log(`Server running on port http://localhost:${port}`);
 });
