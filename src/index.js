@@ -30,9 +30,7 @@ app.get('/time', (req, res) => {
     res.json({ time: new Date().toISOString() });
 });
 
-app.use('/', (req, res) => {
-    res.send('Hello World!');
-});
+
 
 app.get('/status', (req, res) => {
     console.log('Status endpoint hit');
@@ -46,6 +44,10 @@ app.get('/status', (req, res) => {
         }
     });
 })
+
+app.use('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 app.listen(port, () => {
     console.log(`Server running on port http://localhost:${port}`);
