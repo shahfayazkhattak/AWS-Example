@@ -11,6 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check if secrets are present
+        run: |
+          if [ -z "${{ secrets.AWS_HOST }}" ]; then
+            echo "❌ AWS_HOST is missing"
+            exit 1
+          fi
+          if [ -z "${{ secrets.AWS_USER }}" ]; then
+            echo "❌ AWS_USER is missing"
+            exit 1
+          fi
+          if [ -z "${{ secrets.AWS_SSH_PRIVATE_KEY }}" ]; then
+            echo "❌ AWS_SSH_PRIVATE_KEY is missing"
+            exit 1
+          fi
+
       - name: Deploy to remote server via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
