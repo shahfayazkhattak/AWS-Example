@@ -1,0 +1,25 @@
+# .github/workflows/deploy.yml
+name: Deploy to AWS (Main Branch Only)
+
+on:
+  push:
+    branches: [main] # Only trigger on push to main
+
+jobs:
+  deploy:
+    name: Deploy Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to remote server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/projects/AWS-Example
+            git pull origin main
+            yarn
+            yarn restart
