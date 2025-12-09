@@ -42,7 +42,8 @@ app.get('/status', (req, res) => {
             query: req.query,
             ip: req.ip,
             newKye: "shahfayaz",
-            again: "shahfayaz again added"
+            again: "shahfayaz again added",
+            testing: "this is testing"
         }
     });
 })
