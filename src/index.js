@@ -40,7 +40,8 @@ app.get('/status', (req, res) => {
             method: req.method,
             url: req.originalUrl,
             query: req.query,
-            ip: req.ip
+            ip: req.ip,
+            newKye: "shahfayaz"
         }
     });
 })
