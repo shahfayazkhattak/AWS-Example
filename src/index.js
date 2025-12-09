@@ -43,7 +43,8 @@ app.get('/status', (req, res) => {
             ip: req.ip,
             newKye: "shahfayaz",
             again: "shahfayaz again added",
-            testing: "this is testing"
+            testing: "this is testing",
+            add: "added new features"
         }
     });
 })
