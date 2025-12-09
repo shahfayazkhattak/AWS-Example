@@ -35,7 +35,7 @@ jobs:
           key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/projects/AWS-Example
+            cd /home/ubuntu/projects/AWS-ReactExample
             git pull
             yarn
             yarn restart
