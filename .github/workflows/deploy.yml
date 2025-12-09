@@ -36,6 +36,6 @@ jobs:
           port: 22
           script: |
             cd /home/ubuntu/projects/AWS-Example
-            git pull origin main
+            git pull
             yarn
             yarn restart
